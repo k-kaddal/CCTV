@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script src="/socket.io/socket.io.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <img id="image" />
+    <script>
+      const socket = io();
+      socket.on("stream", (image) => {
+        console.log(image);
+        const imageEl = document.getElementById("image");
+        imageEl.src = `data:image/jpeg;base64,${image}`;
+      });
+    </script>
+  </body>
+</html>
